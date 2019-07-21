@@ -9,8 +9,8 @@ client.on('ready', () => {
   });
  
 const serverStats = {
-    guildID: '601090259224231976', //SERVER ID HERE
-    ticketCategoryID: '601407738077118475'//TICKET CATEGORY ID HERE
+    guildID: '432217617714118656', //SERVER ID HERE
+    ticketCategoryID: '602577299086245918'//TICKET CATEGORY ID HERE
  
 }
  
@@ -35,7 +35,7 @@ client.on('message', async message => {
             channel.setParent(serverStats.ticketCategoryID)
             channel.setTopic(`/complete to close the ticket | Support for ${message.author.tag} | ID: ${message.author.id}`)
  
-            channel.overwritePermissions("601090259224231976", { //Role id (when someone join my server get this role with id <<, i dont know how to change it for @everyone. This will prevent users to see the channel, only admins will see!
+            channel.overwritePermissions("432217617714118656", { //Role id (when someone join my server get this role with id <<, i dont know how to change it for @everyone. This will prevent users to see the channel, only admins will see!
                 VIEW_CHANNEL: false,
                 SEND_MESSAGES: false,
                 ADD_REACTIONS: false
@@ -85,7 +85,7 @@ client.on('message', async message => {
             const complete = new Discord.RichEmbed()
                 .setColor('RANDOM')
                 .setAuthor(`Hey, ${supportUser.tag}`, supportUser.avatarURL)
-                .setFooter('Ticket Closed -- SCM | Community')
+                .setFooter('Ticket Closed -- تم اغلاق التذكرة')
                 .setDescription('**Your ticket has been marked as complete. If you wish to reopen it, or create a new one, please send a message to the bot. لقد تم إغلاق المحادئة اذا كنت ترغب في استكمال المحادثة لا تتردد في إرسال رسالة اخري للبوت**')
             supportUser.send(complete);
             message.channel.delete();
@@ -95,13 +95,13 @@ client.on('message', async message => {
                 .addField('Support User', `${supportUser.tag}`)
                 .addField('Closer', message.author.tag)
                 .setColor('RANDOM')
-            const staffChannel = client.channels.get('601410859398463518'); //Create a log channel and put id here
+            const staffChannel = client.channels.get('602580415361843201'); //Create a log channel and put id here
             staffChannel.send(inEmbed); 
         }
         const embed4 = new Discord.RichEmbed() 
             .setColor('RANDOM')
             .setAuthor(message.author.tag, message.author.avatarURL)
-            .setFooter(`Message Received - SCM | Community`)
+            .setFooter(`Message Received - تم ارسال الرسالة`)
             .setDescription(message.content)
         client.users.get(support.targetID)
             .send(embed4);
