@@ -113,41 +113,4 @@ client.on('message', async message => {
         return message.channel.send(embed4); 
     }
 }); 
-//نرحيب في روم صوتي 
-let room = "602806436421959712"
-
-client.on("guildMemberAdd", member => {
-    let guild = client.channels.get(room).guild.id
-
-    if(member.guild.id != guild) return;
-    client.channels.get(room).setName("Welcome "+member.user.username).then(m=> { setTimeout(() => {
-        client.channels.get(room).setName(member.guild.name+" - "+member.guild.members.size)
-    }, 6000)})
-} )
-
-client.on("guildMemberRemove", member => {
-    let guild = client.channels.get(room).guild.id
-
-    if(member.guild.id != guild) return;
-    client.channels.get(room).setName("Member Left :(").then(m=> { setTimeout(() => {
-        client.channels.get(room).setName(member.guild.name+" - "+member.guild.members.size)
-    }, 3000)})
-})
-
-client.on("voiceStateUpdate" , (oldMember, newMember) => {
-    let guild = client.channels.get(room).guild.id
-
-    if(oldMember.guild.id != guild) return;
-    let newUserChannel = newMember.voiceChannel
-  let oldUserChannel = oldMember.voiceChannel
-  if(oldUserChannel === undefined && newUserChannel !== undefined) {
-        client.channels.get(room).setName("Hi, "+oldMember.user.username).then(m=> { setTimeout(() => {
-            client.channels.get(room).setName(oldMember.guild.name+" - "+oldMember.guild.members.size)
-            }, 3000)})
-  } else if(newUserChannel === undefined){
-        client.channels.get(room).setName("Bye, "+oldMember.user.username).then(m=> { setTimeout(() => {
-            client.channels.get(room).setName(oldMember.guild.name+" - "+oldMember.guild.members.size)
-        }, 3000)})
-  }
-} )
 client.login(process.env.BOT_TOKEN);
