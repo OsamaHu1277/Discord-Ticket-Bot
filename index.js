@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "!";
+client.login("Bot TOKEN");
 const db = require("quick.db");
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} !`);
@@ -111,5 +112,3 @@ client.on('message', async message => {
         return message.channel.send(embed4);
     }
 });
-
-client.login(process.env.BOT_TOKEN);
