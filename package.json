@@ -3,7 +3,7 @@
     "version": "0.2.0",
     "description": "Discord Ticket bot built with discord.js",
     "main": "index.js",
-    "author": "OSMX"
+    "author": "OSMX",
     "scripts": {
       "start": "node index.js"
     },
